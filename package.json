@@ -15,8 +15,9 @@
   },
   "scripts": {
     "compile": "rm -rf lib/ && babel --presets es2015 -d lib/ src/",
-    "prepublish": "scripts/resources.sh && npm run compile",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "npm run snyk-protect && scripts/resources.sh && npm run compile",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk-protect"
   },
   "keywords": [
     "gitbook",
@@ -34,7 +35,8 @@
     "normall": "^0.2.2",
     "odt2html": "1.0.1",
     "q": "^1.4.1",
-    "to-markdown": "git://github.com/jpreynat/to-markdown.git#c88526cffbb62cd27faedcddcf279a946bc6de6e"
+    "to-markdown": "git://github.com/jpreynat/to-markdown.git#c88526cffbb62cd27faedcddcf279a946bc6de6e",
+    "@snyk/protect": "latest"
   },
   "contributors": [
     {
@@ -46,5 +48,6 @@
     "babel-cli": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
     "eslint": "^3.4.0"
-  }
+  },
+  "snyk": true
 }
